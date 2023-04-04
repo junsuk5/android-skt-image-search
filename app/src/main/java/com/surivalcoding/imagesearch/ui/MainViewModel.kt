@@ -1,7 +1,9 @@
 package com.surivalcoding.imagesearch.ui
 
 import androidx.lifecycle.ViewModel
+import com.bumptech.glide.Glide.init
 import com.surivalcoding.imagesearch.data.Photo
+import com.surivalcoding.imagesearch.data.MockPhotoRepositoryImpl
 import com.surivalcoding.imagesearch.data.PhotoRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,8 +13,9 @@ data class MainUiState(
     val photos: List<Photo> = emptyList(),
 )
 
-class MainViewModel : ViewModel() {
-    private val repository = PhotoRepository()
+class MainViewModel(
+    private val repository: PhotoRepository = MockPhotoRepositoryImpl()
+) : ViewModel() {
 
     private var _state = MutableStateFlow(MainUiState())
     val state = _state.asStateFlow()
