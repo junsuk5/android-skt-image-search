@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide.init
 import com.surivalcoding.imagesearch.data.Photo
 import com.surivalcoding.imagesearch.data.MockPhotoRepositoryImpl
 import com.surivalcoding.imagesearch.data.PhotoRepository
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -23,6 +24,8 @@ class MainViewModel(
     private var _state = MutableStateFlow(MainUiState())
     val state = _state.asStateFlow()
 
+    private var job: Job? = null
+
     fun onSearchButtonClick(query: String) {
         // 로딩
         _state.update {
@@ -32,8 +35,9 @@ class MainViewModel(
             )
         }
 
+        job?.cancel()
         // 코루틴 스코프에서 오래걸리는 처리
-        viewModelScope.launch {
+        job = viewModelScope.launch {
             _state.update {
                 it.copy(
                     photos = repository.searchPhotos(query),
