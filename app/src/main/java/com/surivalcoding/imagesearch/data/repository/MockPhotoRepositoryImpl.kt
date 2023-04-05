@@ -1,5 +1,6 @@
-package com.surivalcoding.imagesearch.data
+package com.surivalcoding.imagesearch.data.repository
 
+import com.surivalcoding.imagesearch.data.model.Photo
 import kotlinx.coroutines.delay
 
 class MockPhotoRepositoryImpl : PhotoRepository {
@@ -22,7 +23,7 @@ class MockPhotoRepositoryImpl : PhotoRepository {
     )
 
     override suspend fun searchPhotos(query: String) : List<Photo> {
-        delay(5000)
+        delay(2000)
 
         return items
     }

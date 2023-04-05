@@ -1,4 +1,4 @@
-package com.surivalcoding.imagesearch.data
+package com.surivalcoding.imagesearch.data.model
 
 data class Photo(
     val id: Int,

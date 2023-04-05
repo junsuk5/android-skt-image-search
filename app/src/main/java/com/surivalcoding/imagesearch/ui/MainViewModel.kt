@@ -2,10 +2,9 @@ package com.surivalcoding.imagesearch.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bumptech.glide.Glide.init
-import com.surivalcoding.imagesearch.data.Photo
-import com.surivalcoding.imagesearch.data.MockPhotoRepositoryImpl
-import com.surivalcoding.imagesearch.data.PhotoRepository
+import com.surivalcoding.imagesearch.data.repository.MockPhotoRepositoryImpl
+import com.surivalcoding.imagesearch.data.model.Photo
+import com.surivalcoding.imagesearch.data.repository.PhotoRepository
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

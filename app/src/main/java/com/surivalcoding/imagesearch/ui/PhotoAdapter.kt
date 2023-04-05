@@ -1,7 +1,6 @@
 package com.surivalcoding.imagesearch.ui
 
 import android.view.LayoutInflater
-import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,11 +8,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.surivalcoding.imagesearch.R
-import com.surivalcoding.imagesearch.data.Photo
+import com.surivalcoding.imagesearch.data.model.Photo
 
 class PhotoAdapter(
     private val onClicked: (Photo) -> Unit = {},

@@ -8,10 +8,12 @@ import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.surivalcoding.imagesearch.ui.MainViewModel
 import com.surivalcoding.imagesearch.ui.PhotoAdapter
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
