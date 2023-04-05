@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.surivalcoding.imagesearch.data.repository.MockPhotoRepositoryImpl
 import com.surivalcoding.imagesearch.data.model.Photo
+import com.surivalcoding.imagesearch.data.remote.PhotoApi
 import com.surivalcoding.imagesearch.data.repository.PhotoRepository
+import com.surivalcoding.imagesearch.data.repository.PixabayPhotoRepositoryImpl
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,7 +19,9 @@ data class MainUiState(
 )
 
 class MainViewModel(
-    private val repository: PhotoRepository = MockPhotoRepositoryImpl()
+    private val repository: PhotoRepository
+        = PixabayPhotoRepositoryImpl(PhotoApi.getInstance())
+//        = MockPhotoRepositoryImpl()
 ) : ViewModel() {
 
     private var _state = MutableStateFlow(MainUiState())
